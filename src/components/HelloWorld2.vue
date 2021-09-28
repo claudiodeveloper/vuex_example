@@ -1,16 +1,13 @@
 <template>
   <div class="hello">
     <h1>{{ currentCustomer.name }}</h1>
-    <h3>{{ currentProduct.name }}</h3>
-    <h3>{{ currentProduct.qtd }}</h3>
-    <h3>{{ currentProduct.value }}</h3>
-    <input type="button" @click="setNickname('Panda 123')" value="Altera">
+    <h2>{{ currentCustomer.nickname }}</h2>
+    <input type="button" @click="setValue('111111')" value="Altera Valor">
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-
 export default {
   name: 'HelloWorld',
   props: {
@@ -18,13 +15,12 @@ export default {
   },
   methods: {
     ...mapActions({
-      setNickname : "customer/editCustomerNickname"
+      setValue : "product/editProductValue"
     })
   },
   computed: {
     ...mapGetters({
-      currentCustomer: 'customer/currentCustomer',
-      currentProduct: 'product/currentProduct'
+      currentCustomer: 'customer/currentCustomer'
     })
   }
 }
